@@ -1,7 +1,7 @@
 import { useState } from "react";
 // TODO: import your components once you build them
 // import RecipeForm from "./components/RecipeForm";
-// import CategoryFilter from "./components/CategoryFilter";
+// import CategoryFilter from "./components/CategoryFilter" ;
 // import RecipeList from "./components/RecipeList";
 // import SummaryBar from "./components/SummaryBar";
 
@@ -17,6 +17,8 @@ const STARTER_RECIPES = [
 export default function App() {
   // TODO 1: create the `recipes` state using STARTER_RECIPES as the initial value.
   //         Later, wrap it in the lazy initializer that reads from localStorage.
+
+  
   const [recipes, setRecipes] = useState(STARTER_RECIPES);
 
   // TODO 2: create the `filter` state, starting as "All".
