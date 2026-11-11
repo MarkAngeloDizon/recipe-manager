@@ -28,7 +28,8 @@ export default function EditRecipeForm({
   // category and thumb are not yours to resend.
   //
   // Type the handler as React.FormEvent<HTMLFormElement>, not `any`.
-
+  const [time, setTime] = useState(String(recipe.time ?? 0));
+  const [notes, setNotes] = useState(recipe.notes ?? "");
   // TODO 10b — useRef, the OTHER use: a value that survives renders but never
   // triggers one.
   //
@@ -43,6 +44,20 @@ export default function EditRecipeForm({
   //
   // Why a ref and not state: nothing renders this value, so re-rendering on it
   // would be pure waste. That is the distinction the final exam asks about.
+  const original = useRef({ time: recipe.time ?? 0, notes: recipe.notes ?? "" });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const nextTime = Number(time) || 0;
+    const nextNotes = notes.trim();
+
+    if (nextTime === original.current.time && nextNotes === original.current.notes) {
+      onCancel();
+      return;
+    }
+
+    onSave({ id: recipe.id, time: nextTime, notes: nextNotes });
+  };
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className="space-y-3">
