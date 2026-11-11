@@ -1,9 +1,9 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 // TODO: import your components once you build them
-import RecipeForm from "./components/RecipeForm";
-import CategoryFilter from "./components/CategoryFilter" ;
-import RecipeList from "./components/RecipeList";
-import SummaryBar from "./components/SummaryBar";
+// import RecipeForm from "./components/RecipeForm";
+// import CategoryFilter from "./components/CategoryFilter";
+// import RecipeList from "./components/RecipeList";
+// import SummaryBar from "./components/SummaryBar";
 
 const STARTER_RECIPES = [
   { id: 1, title: "Chicken Adobo", category: "Dinner", time: 45, favorite: false },
@@ -24,10 +24,7 @@ export default function App() {
 
   // TODO 2: create the `filter` state, starting as "All".
   //         Later, wrap it in the lazy initializer that reads from localStorage.
-  const [filter, setFilter] = useState(() => {
-    const savedFilter = localStorage.getItem("filter");
-    return savedFilter || "All";
-  });
+
   // TODO 3: add useEffect to persist `recipes` to localStorage whenever it changes.
   useEffect(() => {
     localStorage.setItem("recipes", JSON.stringify(recipes));
@@ -47,10 +44,6 @@ export default function App() {
 
   // TODO 6: write handleAdd(recipe) — adds a new recipe with a unique id (Date.now()).
   //         Use the spread operator, NOT .push().
-  const handleAdd = (newRecipe) => {
-    const recipeWithId = { ...newRecipe, id: Date.now() };
-    setRecipes([...recipes, recipeWithId]);
-  };
 
   // TODO 7: write handleToggleFavorite(id) — flips the `favorite` field of the matching recipe.
   //         Use .map() and spread; do NOT mutate the object directly.
@@ -70,7 +63,6 @@ export default function App() {
 
   // TODO 9: derive `visibleRecipes` in render — if filter === "All" show all,
   //         otherwise filter by category. Do NOT store this in state.
-  const visibleRecipes = filter === "All" ? recipes : recipes.filter((recipe) => recipe.category === filter);
 
   return (
     <div className="min-h-screen bg-base-200 py-8 px-4">
@@ -83,12 +75,12 @@ export default function App() {
         </header>
 
         {/* TODO: render <RecipeForm onAdd={handleAdd} /> */}
-        <RecipeForm onAdd={handleAdd} />
+
         {/* TODO: render <SummaryBar total={...} favorites={...} /> */}
         <SummaryBar total={recipes.length} favorites={recipes.filter((recipe) => recipe.favorite).length} />
 
         {/* TODO: render <CategoryFilter activeFilter={filter} onFilterChange={setFilter} /> */}
-        <CategoryFilter activeFilter={filter} onFilterChange={setFilter} />
+
         {/* TODO: render <RecipeList recipes={visibleRecipes}
                                     onToggleFavorite={handleToggleFavorite}
                                     onDelete={handleDelete} /> */}

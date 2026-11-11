@@ -17,7 +17,10 @@ export default function CategoryFilter({ activeFilter, onFilterChange }) {
           {filter}
         </button>
       ))}
+<<<<<<< HEAD
       
+=======
+>>>>>>> 3eb7e4ebd5e391c394b422069150ce44689fb909
     </div>
   );
 }
