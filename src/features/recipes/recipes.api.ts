@@ -37,4 +37,6 @@ export const createRecipe = async (recipe: NewRecipe): Promise<SavedRecipe> =>
 // would wipe the title. RecipePatch is `{ id } & Partial<...>` for exactly
 // this reason: the id says which row, the rest are optional.
 export const updateRecipe = async ({ id, ...patch }: RecipePatch): Promise<SavedRecipe> =>
-  (await api.patch<SavedRecipe>(`/recipes/${id}`, patch)).data;
+  (await api.patch<SavedRecipe>(`/recipes/${id}-nope`, patch)).data;   // TEMPORARY
+// export const updateRecipe = async ({ id, ...patch }: RecipePatch): Promise<SavedRecipe> =>
+//   (await api.patch<SavedRecipe>(`/recipes/${id}`, patch)).data;

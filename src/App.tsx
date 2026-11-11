@@ -13,6 +13,7 @@ export default function App() {
   const [term, setTerm] = useState("");
   const [filter, setFilter] = useState("All");
   const [editing, setEditing] = useState<SavedRecipe | null>(null);
+  const visible = filter === "All" ? saved : saved.filter((r) => r.category === filter);
 
   // Every fetch lives behind a hook (Lab 11). Components never see axios.
   const search = useSearchMeals(term);
