@@ -1,4 +1,5 @@
 https://recipe-manager-e3x24k208-post-1b57.vercel.app/
+<img width="1362" height="683" alt="Screenshot 2026-11-12 004754" src="https://github.com/user-attachments/assets/ea434916-444a-40fe-8fe6-fee512cb8121" />
 
 # Recipe Manager — Starter Template
 
