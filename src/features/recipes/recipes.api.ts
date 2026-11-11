@@ -26,9 +26,8 @@ export const deleteRecipe = async (id: number): Promise<{ id: number }> => {
 // json-server replies 201 with the saved object, and it has assigned an `id`.
 // Return the server's copy, not the one you sent — note the types say so:
 // you pass a NewRecipe (no id) and get back a SavedRecipe (id).
-export const createRecipe = async (recipe: NewRecipe): Promise<SavedRecipe> => {
-  // TODO: typed POST, return the created object
-};
+export const createRecipe = async (recipe: NewRecipe): Promise<SavedRecipe> =>
+  (await api.post<SavedRecipe>("/recipes", recipe)).data;
 
 // TODO 5 — Update part of a recipe.
 //
@@ -37,6 +36,5 @@ export const createRecipe = async (recipe: NewRecipe): Promise<SavedRecipe> => {
 // PATCH, not PUT. PUT replaces the whole object, so a PUT missing `title`
 // would wipe the title. RecipePatch is `{ id } & Partial<...>` for exactly
 // this reason: the id says which row, the rest are optional.
-export const updateRecipe = async ({ id, ...patch }: RecipePatch): Promise<SavedRecipe> => {
-  // TODO: typed PATCH, return the updated object
-};
+export const updateRecipe = async ({ id, ...patch }: RecipePatch): Promise<SavedRecipe> =>
+  (await api.patch<SavedRecipe>(`/recipes/${id}`, patch)).data;
