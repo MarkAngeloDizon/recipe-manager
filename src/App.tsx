@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "@/features/auth/auth.hooks";
-import { useSavedRecipes } from "@/features/recipes/recipes.hooks";
-import RequireAuth from "@/components/RequireAuth";
-import Layout from "@/components/Layout";
-import SearchPage from "@/pages/SearchPage";
-import SavedPage from "@/pages/SavedPage";
-import RecipeDetailPage from "@/pages/RecipeDetailPage";
-import LoginPage from "@/pages/LoginPage";
-import NotFound from "@/pages/NotFound";
+import { AuthProvider } from "./features/auth/auth.hooks";
+import { useSavedRecipes } from "./features/recipes/recipes.hooks";
+import RequireAuth from "./components/RequireAuth";
+import Layout from "./components/Layout";
+import SearchPage from "./pages/SearchPage";
+import SavedPage from "./pages/SavedPage";
+import RecipeDetailPage from "./pages/RecipeDetailPage";
+import LoginPage from "./pages/LoginPage";
+import NotFound from "./pages/NotFound";
 
 function Shell() {
   const { saved } = useSavedRecipes();
