@@ -1,5 +1,5 @@
 import RecipeCard from "./RecipeCard";
-import type { SavedRecipe } from "@/features/recipes/recipes.types";
+import type { SavedRecipe } from "../features/recipes/recipes.types";
 
 interface RecipeListProps {
   recipes: SavedRecipe[];

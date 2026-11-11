@@ -1,4 +1,4 @@
-import type { Recipe } from "@/features/meals/meals.types";
+import type { Recipe } from "../meals/meals.types";
 
 /** A recipe once json-server has stored it and assigned an id. */
 export interface SavedRecipe extends Recipe {

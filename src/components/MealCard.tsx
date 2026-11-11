@@ -1,4 +1,4 @@
-import type { Recipe } from "@/features/meals/meals.types";
+import type { Recipe } from "../features/meals/meals.types";
 
 interface MealCardProps {
   meal: Recipe;

@@ -1,4 +1,4 @@
-import type { SavedRecipe } from "@/features/recipes/recipes.types";
+import type { SavedRecipe } from "../features/recipes/recipes.types";
 
 interface RecipeCardProps {
   recipe: SavedRecipe;
